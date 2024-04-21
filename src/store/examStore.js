@@ -11,7 +11,12 @@ export const useExamStore = defineStore(
     const subjectExams = ref([]);
 
     const getExams = async () => {
-      const { data } = await api("/exam");
+      const { data } = await api("/exam",{
+        headers: {
+          Authorization:
+            "Bearer " + JSON.parse(localStorage.getItem("omarfarukuser")).token,
+        },
+      });
       exams.value = data.exams;
     };
 
