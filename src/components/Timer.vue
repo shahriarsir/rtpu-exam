@@ -2,23 +2,23 @@
     <div class="space-x-3">
         <div
             class="inline-flex flex-col items-center justify-center w-16 h-16 my-2 text-gray-800 bg-gray-300 rounded-full dark:bg-white sm:w-20 sm:h-20 ring-2 ring-offset-1 ring-red-500">
-            <h2 class="text-xl font-bold">{{ formatNumber(days) }}</h2>
-            <p class="text-sm">দিন</p>
+            <h2 class="text-xl font-bold">{{ (days) }}</h2>
+            <p class="text-sm">Days</p>
         </div>
         <div
             class="inline-flex flex-col items-center justify-center w-16 h-16 my-2 text-gray-800 bg-gray-300 rounded-full dark:bg-white sm:w-20 sm:h-20 ring-2 ring-offset-1 ring-blue-400">
-            <h2 class="text-xl font-bold">{{ formatNumber(hours) }}</h2>
-            <p class="text-sm">ঘন্টা</p>
+            <h2 class="text-xl font-bold">{{ (hours) }}</h2>
+            <p class="text-sm">Hours</p>
         </div>
         <div
             class="inline-flex flex-col items-center justify-center w-16 h-16 my-2 text-gray-800 bg-gray-300 rounded-full dark:bg-white sm:w-20 sm:h-20 ring-2 ring-offset-1 ring-indigo-400">
-            <h2 class="text-xl font-bold">{{ formatNumber(minute) }}</h2>
-            <p class="text-sm">মিনিট</p>
+            <h2 class="text-xl font-bold">{{ (minute) }}</h2>
+            <p class="text-sm">Minutes</p>
         </div>
         <div
             class="inline-flex flex-col items-center justify-center w-16 h-16 my-2 text-gray-800 bg-gray-300 rounded-full dark:bg-white sm:w-20 sm:h-20 ring-2 ring-offset-1 ring-emerald-400">
-            <h2 class="text-xl font-bold">{{ formatNumber(second) }}</h2>
-            <p class="text-sm">সেকেন্ড</p>
+            <h2 class="text-xl font-bold">{{ (second) }}</h2>
+            <p class="text-sm">Seconds</p>
         </div>
     </div>
 </template>
@@ -42,9 +42,7 @@ export default {
     },
     methods: {
 
-        formatNumber(n) {
-            return Intl.NumberFormat('bn-BD').format(n);
-        },
+        
 
         showRemaining() {
             const timer = setInterval(() => {

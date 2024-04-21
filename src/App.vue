@@ -3,7 +3,7 @@
     <div class="container py-3 mx-auto print:hidden sm:px-6 lg:px-8 bangla"
       v-if="$route.name != 'MCQ' && $route.name != 'CQ'">
       <router-link to="/">
-        <h1 class="text-3xl font-bold text-center">Road to Public University</h1>
+        <img src="https://shahriarsir.com/assets/logo.svg" class="mx-auto h-14" alt="">
       </router-link>
 
     </div>

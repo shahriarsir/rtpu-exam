@@ -14,7 +14,7 @@ const formatNumber = (n) => {
 
 const formatDateTime = (d) => {
   const date = new Date(d);
-  return date.toLocaleDateString("bn-BD", {
+  return date.toLocaleDateString("en-US", {
     timeZone: "Asia/Dhaka",
     year: "numeric",
     month: "long",

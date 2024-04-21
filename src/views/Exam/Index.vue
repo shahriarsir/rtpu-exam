@@ -33,7 +33,7 @@
                             <img :src="icons.schedule" class="h-8" alt="Exam Duration">
                         </div>
                         <div class="text-sm font-semibold">
-                            <p class="text-gray-500 ">পরীক্ষা শুরুঃ</p>
+                            <p class="text-gray-500 ">Exam Start:</p>
                             <p>{{ formatDateTime(exam.start_time) }}</p>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                             <img :src="icons.schedule" class="h-8" alt="Exam Duration">
                         </div>
                         <div class="text-sm font-semibold">
-                            <p class="text-gray-500 ">পরীক্ষা শেষঃ</p>
+                            <p class="text-gray-500 ">Exam Ends:</p>
                             <p>{{ formatDateTime(exam.end_time) }}</p>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                             <img :src="icons.exam" class="h-8" alt="Exam Duration">
                         </div>
                         <div class="text-sm font-semibold">
-                            <p class="text-gray-500 ">পূর্ণমানঃ</p>
+                            <p class="text-gray-500 ">Total Marks:</p>
                             <p>{{ formatNumber(exam.total_marks) }} মিনিট</p>
                         </div>
                     </div>
@@ -64,8 +64,8 @@
                             <img :src="icons.time" class="h-8" alt="Exam Duration">
                         </div>
                         <div class="text-sm font-semibold">
-                            <p class="text-gray-500 ">সময়ঃ</p>
-                            <p>{{ formatNumber(exam.duration) }} মিনিট</p>
+                            <p class="text-gray-500 ">Duration:</p>
+                            <p>{{ formatNumber(exam.duration) }} Minutes</p>
                         </div>
                     </div>
 
@@ -76,18 +76,18 @@
 
                     <button class="px-4 py-2 font-semibold text-white bg-green-600 border rounded-md"
                         v-if="!exam.is_upcoming" @click="startExam(exam._id, exam.chapter)">
-                        পরীক্ষা
+                        Start Exam
                     </button>
                     <button class="px-4 py-2 font-semibold text-white bg-green-600 border rounded-md" v-else
                         @click="upcomingAlert('MCQ Exam', 'starts')">
-                        পরীক্ষা
+                        Start Exam
                     </button>
                     <router-link class="px-4 py-2 font-semibold text-white bg-red-500 border rounded-md"
                         v-if="exam.solution_published" :to="`/solution/${exam._id}`">উত্তরপত্র
                     </router-link>
                     <button class="px-4 py-2 font-semibold text-white bg-red-500 border rounded-md" v-else
                         @click="upcomingAlert('MCQ Solve', 'Ends at ' + formatDateTime(exam.solution_publish_time))">
-                        উত্তরপত্র
+                        Solution
                     </button>
                     <router-link v-if="exam.result_published"
                         class="px-4 py-2 font-semibold text-white border rounded-md bg-violet-500"
@@ -95,7 +95,7 @@
                     </router-link>
                     <button class="px-4 py-2 font-semibold text-white bg-red-500 border rounded-md" v-else
                         @click="upcomingAlert('MCQ Leaderboard', 'Ends')">
-                        ফলাফল
+                        Ranking
                     </button>
                 </div>
 
