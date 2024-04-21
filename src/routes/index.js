@@ -51,6 +51,9 @@ const router = createRouter({
       path: "/link/:id",
       name: "Link",
       component: () => import("../views/mcq/Link.vue"),
+      meta: {
+        requiresAuth: true,
+      },
     },
 
     {
