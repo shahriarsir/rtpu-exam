@@ -112,7 +112,12 @@ const end_time = ref(null)
 
 const getQuestions = async () => {
   qload.value = true;
-  const { data } = await api(`/exam/${exam._id}/question`)
+  const { data } = await api(`/exam/${exam._id}/question`,{
+        headers: {
+          Authorization:
+            "Bearer " + JSON.parse(localStorage.getItem("rtpu")).token,
+        },
+      })
   questions.value = data.questions
   hasParticiapted.value = data.hasParticiapted
   let duration = exam.duration
@@ -206,7 +211,12 @@ const submitAns = async () => {
       attempt,
       answers: squestions,
       duration: Date.now() - examStart.value
-    })
+    },{
+        headers: {
+          Authorization:
+            "Bearer " + JSON.parse(localStorage.getItem("rtpu")).token,
+        },
+      })
 
     successShow('Submitted successfully', 'Wait for the result to be published.')
 
