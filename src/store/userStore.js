@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { api } from "../plugins/api";
 
-export const useUserStore = defineStore("medi24user", {
+export const useUserStore = defineStore("rtpu", {
   state: () => ({
     user: null,
     token: null,

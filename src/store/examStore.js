@@ -7,6 +7,7 @@ export const useExamStore = defineStore(
   "exams",
   () => {
     const exams = ref([]);
+    const allExams = ref([]);
 
     const subjectExams = ref([]);
 
@@ -14,14 +15,15 @@ export const useExamStore = defineStore(
       const { data } = await api("/exam",{
         headers: {
           Authorization:
-            "Bearer " + JSON.parse(localStorage.getItem("omarfarukuser")).token,
+            "Bearer " + JSON.parse(localStorage.getItem("rtpu")).token,
         },
       });
       exams.value = data.exams;
+      allExams.value = data.exams;
     };
 
     const upcomingExams = computed(() => {
-      return exams.value.filter((exam) => exam.is_upcoming);
+      return allExams.value.filter((exam) => exam.is_upcoming).reverse()
     });
 
     const pastExams = computed(() => {

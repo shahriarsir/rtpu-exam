@@ -103,7 +103,7 @@ router.beforeEach((to, from, next) => {
     return;
   }
 
-  if (localStorage.getItem("medi24user")) {
+  if (localStorage.getItem("rtpu")) {
     next();
     return;
   }
