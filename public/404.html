@@ -1,0 +1,9 @@
+<script>
+  let path = location.href;
+  localStorage.setItem(
+    "path",
+    path.replace("https://rtpu-exam.vercel.app", "")
+  );
+
+  window.location.href = "https://rtpu-exam.vercel.app";
+</script>
