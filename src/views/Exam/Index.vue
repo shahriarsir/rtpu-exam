@@ -1,5 +1,5 @@
 <template>
-    <div class="container py-5 mx-auto" v-if="exams.length > 0">
+    <div class="container py-5 mx-auto space-y-10" v-if="exams.length > 0">
 
         <div v-if="currentExams.length > 0">
 
