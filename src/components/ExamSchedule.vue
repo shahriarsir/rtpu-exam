@@ -46,7 +46,7 @@
                 </div>
                 <div class="text-sm font-semibold">
                     <p class="text-gray-500 ">Total Marks</p>
-                    <p>{{ formatNumber(exam.total_marks) }} Minutes</p>
+                    <p>{{ (exam.total_marks) }} </p>
                 </div>
             </div>
             <div class="flex items-center gap-2 overflow-hidden border rounded-lg">
@@ -55,7 +55,7 @@
                 </div>
                 <div class="text-sm font-semibold">
                     <p class="text-gray-500 ">Duration:</p>
-                    <p>{{ formatNumber(exam.duration) }} Minutes</p>
+                    <p>{{ (exam.duration) }} Minutes</p>
                 </div>
             </div>
 
