@@ -13,16 +13,23 @@
 
 <script setup>
 import { useRouter } from "vue-router";
+import { useExamStore } from "./store/examStore";
 
 const router = useRouter();
 
+const { getExams,exams} = useExamStore();
 
+if(!exams.length){
+  getExams();
+}
 
 let currentPath = localStorage.getItem("path");
 if (currentPath) {
   localStorage.removeItem("path");
   router.replace(currentPath);
 }
+
+
 
 
 </script>

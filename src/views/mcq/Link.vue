@@ -1,6 +1,6 @@
 <template>
   <div v-if="curexam && curexam._id"
-    class="p-5 mx-auto my-10 space-y-4 text-center border border-gray-300 rounded-lg bangla ring ring-primary bg-gray-50 md:w-1/2">
+    class="p-5 mx-2 my-10 space-y-4 text-center border border-gray-300 rounded-lg md:mx-auto bangla ring ring-primary bg-gray-50 md:w-1/2">
     <div>
       একবার এক্সাম দিতে ঢুকলেই তোমার সময় শুরু হয়ে যাবে। ভুলে বা নেটের সমস্যায় বা
       অন্য যেকোনো কারণে একাধিকবার এক্সাম দেয়ার চেষ্টা করলে র‍্যাংকিং এ তোমার নাম
@@ -8,7 +8,7 @@
     </div>
 
     <div>
-      <h1 class="text-2xl font-semibold text-orange-400">
+      <h1 class="text-2xl font-semibold text-green-500">
         {{ curexam.title }}
       </h1>
       <h1 class="mt-3">
@@ -43,6 +43,8 @@ import { formatDateTime } from '../../plugins/formatData';
 const store = useExamStore();
 
 const { curexam } = storeToRefs(store)
+
+
 
 
 
