@@ -70,7 +70,7 @@
 
         <div class="grid grid-cols-3 gap-4 text-center " v-if="exam.is_running">
             <button class="px-4 py-2 font-semibold text-white bg-green-600 border rounded-md" v-if="!exam.is_upcoming"
-                @click="startExam(exam._id, exam.chapter)">
+                @click="startExam(exam._id)">
                 Start Exam
             </button>
             <button class="px-4 py-2 font-semibold text-white bg-green-600 border rounded-md" v-else
@@ -102,6 +102,7 @@ import { useExamStore } from '../store/examStore';
 import Timer from './Timer.vue';
 import icons from '../plugins/subjectIcons'
 import { formatNumber, formatDateTime } from '../plugins/formatData'
+import { useRouter } from 'vue-router';
 defineProps({
     exams: {
         type: Array,
@@ -111,7 +112,10 @@ defineProps({
 
 const { upcomingAlert } = useAlertStore();
 
-const { startExam } = useExamStore();
+const router = useRouter();
+const startExam = (id) => {
+    router.push(`/exam/${id}`);
+}
 
 const copyText = (e) => {
     const el = document.createElement('textarea');
