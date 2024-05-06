@@ -12,18 +12,26 @@ export const useExamStore = defineStore(
     const subjectExams = ref([]);
 
     const getExams = async () => {
-      const { data } = await api("/exam",{
-        headers: {
-          Authorization:
-            "Bearer " + JSON.parse(localStorage.getItem("rtpu")).token,
-        },
-      });
-      exams.value = data.exams;
-      allExams.value = data.exams;
+      let token = JSON.parse(localStorage.getItem("rtpu")).token;
+
+      if (token) {
+        const { data } = await api("/exam", {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        });
+        exams.value = data.exams;
+        allExams.value = data.exams;
+      } else {
+        // retry logic here
+        setTimeout(() => {
+          getExams();
+        }, 5000);
+      }
     };
 
     const upcomingExams = computed(() => {
-      return allExams.value.filter((exam) => exam.is_upcoming).reverse()
+      return allExams.value.filter((exam) => exam.is_upcoming).reverse();
     });
 
     const pastExams = computed(() => {

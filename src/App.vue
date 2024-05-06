@@ -12,14 +12,19 @@
 </template>
 
 <script setup>
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useExamStore } from "./store/examStore";
+import { useUserStore } from "./store/userStore";
+import { onMounted } from "vue";
 
 const router = useRouter();
+const route = useRoute();
 
-const { getExams,exams} = useExamStore();
+const { user, token } = useUserStore();
 
-if(!exams.length){
+const { getExams, exams } = useExamStore();
+
+if (!exams.length) {
   getExams();
 }
 
@@ -29,8 +34,11 @@ if (currentPath) {
   router.replace(currentPath);
 }
 
-
-
+onMounted(() => {
+  if (user.value) {
+    window.clarity("identify", user.value.phone, user.value._id, route.path, user.value.name)
+  }
+});
 
 </script>
 

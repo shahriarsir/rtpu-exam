@@ -21,7 +21,7 @@
     </div>
   </div>
   <div v-else class="flex flex-col items-center justify-center w-full h-screen">
-    <img src="../../assets/examloading.gif" alt="" class="h-56">
+    <!-- <img src="../../assets/examloading.gif" alt="" class="h-56"> -->
     <div class="flex items-center justify-center space-x-1 text-sm text-gray-700 ">
       <svg fill="none" class="w-10 h-10 animate-spin" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
         <path clip-rule="evenodd"

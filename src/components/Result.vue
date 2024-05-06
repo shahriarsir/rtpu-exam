@@ -19,11 +19,7 @@
               class="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
 
               <div class="mt-2">
-
-
-                <img v-if="result.type == 'retake'" src="../assets/retake.gif" class="mx-auto h-36" alt="">
-                <img v-else class="mx-auto h-36" src="../assets/submit.png" alt="">
-
+                <img  class="mx-auto h-36" src="../assets/submit.png" alt="">
                 <p class="text-2xl font-semibold text-center ">
                   You scored: {{ result.score }}
                 </p>
