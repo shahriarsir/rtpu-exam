@@ -25,7 +25,7 @@
 
           <div class="mt-3 space-y-2">
             <div v-for="(o, n) in q.options" :key="n" class="flex flex-col p-3 rounded shadow "
-              :class="{ ' bg-green-300 print:border-gray-900': o == q.answer, 'bg-red-300': !q.isCorrect && o == q.selected }">
+              :class="{ ' bg-green-300 border print:border-gray-900': o == q.answer, 'bg-red-300': !q.isCorrect && o == q.selected }">
               <div v-html="o"></div>
 
             </div>

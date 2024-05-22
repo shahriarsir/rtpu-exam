@@ -9,7 +9,7 @@ const formatDate = (d) => {
 };
 
 const formatNumber = (n) => {
-  return Intl.NumberFormat("bn-BD").format(n);
+  return n;
 };
 
 const formatDateTime = (d) => {
@@ -59,12 +59,10 @@ function formatDuration(duration) {
   const formattedTime = new Intl.DateTimeFormat("bn-BD", options).format(time);
   return formattedTime.replace("UTC", "");
 }
-const millisecToTime = (millis,duration) => {
-
-  if(millis>duration){
-    millis = duration
+const millisecToTime = (millis, duration) => {
+  if (millis > duration) {
+    millis = duration;
   }
-
 
   var minutes = Math.floor(millis / 60000);
   var seconds = ((millis % 60000) / 1000).toFixed(0);

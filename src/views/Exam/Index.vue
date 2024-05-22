@@ -56,7 +56,7 @@
                         </div>
                         <div class="text-sm font-semibold">
                             <p class="text-gray-500 ">Total Marks:</p>
-                            <p>{{ formatNumber(exam.total_marks) }} মিনিট</p>
+                            <p>{{ formatNumber(exam.total_marks) }}</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-2 overflow-hidden border rounded-lg">
@@ -71,17 +71,11 @@
 
                 </div>
 
-                <div class="grid grid-cols-3 gap-4 text-center ">
+                <div class="grid grid-cols-2 gap-4 text-center ">
 
 
-                    <button class="px-4 py-2 font-semibold text-white bg-green-600 border rounded-md"
-                        v-if="!exam.is_upcoming" @click="startExam(exam._id, exam.chapter)">
-                        Start Exam
-                    </button>
-                    <button class="px-4 py-2 font-semibold text-white bg-green-600 border rounded-md" v-else
-                        @click="upcomingAlert('MCQ Exam', 'starts')">
-                        Start Exam
-                    </button>
+
+
                     <router-link class="px-4 py-2 font-semibold text-white bg-red-500 border rounded-md"
                         v-if="exam.solution_published" :to="`/solution/${exam._id}`">উত্তরপত্র
                     </router-link>

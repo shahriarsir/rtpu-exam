@@ -36,7 +36,7 @@
           <div class="mt-3">
 
             <div v-for="o, n in q.options" :key="n" v-html="o" @click="selectOption(i, o)" :class="`cursor-pointer transform hover:scale-105 transition duration-150 hover:font-semibold text-black  my-3 p-3 rounded    ${o == q.selected
-    ? 'border-2 border-green-500 bg-green-300'
+    ? 'border-2 border-green-500 bg-green-300 '
     : ' bg-white border'
     }`"></div>
 
