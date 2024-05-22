@@ -13,33 +13,7 @@
       </div>
 
       <!-- status -->
-      <div>
-        <div class="flex justify-center space-x-4" v-if="status">
-          <div class="flex space-x-2 items center">
-            <div class="text-green-500"> সঠিক উত্তরঃ </div>
-            <div class="text-green-500">{{ status.correct }} টি </div>
-          </div>
-          <div class="flex space-x-2 items center">
-            <div class="text-red-500">ভুল উত্তরঃ</div>
-            <div class="text-red-500">{{ (status.wrong) }} টি</div>
-          </div>
 
-          <div class="flex space-x-2 items center">
-            <div class="text-blue-500">উত্তর দেয়নিঃ</div>
-            <div class="text-blue-500">{{ formatNumber(status.missing) }} টি</div>
-          </div>
-        </div>
-
-
-        <div v-if="status" class="flex items-center justify-center gap-2 mt-2 text-center">
-          <div class="text-blue-500"> প্রাপ্ত নম্বরঃ </div>
-          <div class="text-blue-500"> {{ status.correct }} x ১ - {{ status.wrong }} x ০.২৫ = {{
-    formatNumber(status.total) }}</div>
-        </div>
-
-
-
-      </div>
 
 
       <div class="mx-2 md:w-2/3 md:mx-auto print:text-black" ref="content">
