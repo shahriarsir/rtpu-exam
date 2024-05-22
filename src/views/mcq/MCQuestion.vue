@@ -11,16 +11,9 @@
       <p v-if="hasParticiapted">
         You have already participated in this exam.
       </p>
-      <div v-if="exam.solution_published">
-        <p>You can practice this exam now.</p>
-        <button @click="practiceNow"
-          class="px-4 py-2 mt-3 font-semibold text-white bg-green-500 rounded-md shadow-sm hover:cursor-pointer hover:shadow-lg">Practice
-          Now
-        </button>
-      </div>
-      <div v-else>
-        You can practice this exam after the solution is published.
-      </div>
+      <p v-else>
+        {{ exam.is_ended ? "Exam has ended" : "" }}
+      </p>
     </div>
   </div>
   <div class="container mx-auto" v-else-if="!qload || retake">
@@ -112,12 +105,12 @@ const end_time = ref(null)
 
 const getQuestions = async () => {
   qload.value = true;
-  const { data } = await api(`/exam/${exam._id}/question`,{
-        headers: {
-          Authorization:
-            "Bearer " + JSON.parse(localStorage.getItem("rtpu")).token,
-        },
-      })
+  const { data } = await api(`/exam/${exam._id}/question`, {
+    headers: {
+      Authorization:
+        "Bearer " + JSON.parse(localStorage.getItem("rtpu")).token,
+    },
+  })
   questions.value = data.questions
   hasParticiapted.value = data.hasParticiapted
   let duration = exam.duration
@@ -211,12 +204,12 @@ const submitAns = async () => {
       attempt,
       answers: squestions,
       duration: Date.now() - examStart.value
-    },{
-        headers: {
-          Authorization:
-            "Bearer " + JSON.parse(localStorage.getItem("rtpu")).token,
-        },
-      })
+    }, {
+      headers: {
+        Authorization:
+          "Bearer " + JSON.parse(localStorage.getItem("rtpu")).token,
+      },
+    })
 
     successShow('Submitted successfully', 'Wait for the result to be published.')
 
