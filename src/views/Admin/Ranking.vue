@@ -11,9 +11,15 @@
     <div class="flex justify-between max-w-xl mx-auto my-5">
 
 
-        <button @click="calculateResult" class="px-5 py-2 font-semibold text-white bg-blue-500 rounded-md">
-            {{ loading ? 'Calculating...' : 'Calculate Result' }}
-        </button>
+        <div class="flex gap-4">
+            <div class="">
+                <input type="number" v-model="negMark" class="input input-bordered" placeholder="Negative Marks">
+
+            </div>
+            <button @click="calculateResult" class="px-5 py-2 font-semibold text-white bg-blue-500 rounded-md">
+                {{ loading ? 'Calculating...' : 'Calculate Result' }}
+            </button>
+        </div>
 
         <button @click="exportToCsv" class="px-5 py-2 font-semibold text-white bg-green-500 rounded-md">
             Export to CSV
@@ -92,6 +98,7 @@ const myscore = ref(null)
 const { user } = useUserStore()
 
 const loading = ref(false);
+const negMark = ref(false);
 
 const getResults = async () => {
 
@@ -137,7 +144,7 @@ const search = (e) => {
 const calculateResult = async () => {
     loading.value = true;
     const password = prompt('Enter password to calculate result');
-    let { data } = await api.post(`/exam/${exam._id}/calculate-result?password=${password}`);
+    let { data } = await api.post(`/exam/${exam._id}/calculate-result?password=${password}&negmark=${negMark.value}`);
     loading.value = false;
     getResults()
 
