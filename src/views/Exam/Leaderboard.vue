@@ -24,11 +24,11 @@
                     <div class="flex-1 ml-2 text-gray-900 md:ml-4">
                         <h2 class="text-lg font-semibold">{{ r.name }}</h2>
                         <p>{{ r.college }}</p>
-                        <p class="text-sm text-gray-500">
-                            <!-- Attempts: {{ r.attempt }}, -->
+                        <!-- <p class="text-sm text-gray-500">
+                            Attempts: {{ r.attempt }}, 
                             সময়:
                             {{ (r.duration) }} মিনিট
-                        </p>
+                        </p> -->
                     </div>
                     <div
                         class="flex items-center justify-center w-10 h-10 p-2 font-semibold text-center text-gray-900 rounded-full aspect-square">
