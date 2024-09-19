@@ -225,8 +225,6 @@ const submitAns = async () => {
 }
 
 
-
-
 </script>
 
 
